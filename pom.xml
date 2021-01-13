@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>io.github.oliviercailloux</groupId>
+		<artifactId>gpom</artifactId>
+		<version>0.0.4</version>
+	</parent>
+	<artifactId>supann</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- <groupId>org.codehaus.mojo</groupId> -->
+				<!-- <version>2.6</version> -->
+				<groupId>com.sun.xml.ws</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.3.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+						<configuration>
+							<!-- Access without authentication through the WSDL file in the class 
+								path fails because that file in turn requires the file https://supann.testapi.dauphine.fr/ebx-dataservices/ressources/xsd/common_1.0.xsd. 
+								I didn’t investigate further. -->
+							<wsdlUrls>https://testapi.dauphine.fr/ebx-dataservices/tables/pvRefSupann/RefSupann?WSDL</wsdlUrls>
+							<!-- Fails when spaces in the path to the WSDL_access.txt file. -->
+							<xauthFile>/home/olivier/Professions/M1alt/Supann/WSDL_access.txt</xauthFile>
+							<vmArgs>
+								<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+							</vmArgs>
+							<sourceDestDir>src/generated</sourceDestDir>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+	</dependencies>
+</project>
+

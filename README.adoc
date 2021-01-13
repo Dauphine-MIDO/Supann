@@ -1,0 +1,9 @@
+= plaquette-MIDO
+:groupId: io.github.oliviercailloux
+:artifactId: supann
+:repository: supann
+
+image:https://travis-ci.com/Dauphine-MIDO/{repository}.svg?branch=master["Build Status", link="https://travis-ci.com/Dauphine-MIDO/{repository}"]
+
+Les classes permettant d’accéder aux services web RefSupann.
+

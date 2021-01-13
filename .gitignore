@@ -1,0 +1,9 @@
+.classpath
+.project
+.settings/
+API_login.txt
+WSDL_access.txt
+target/
+src/generated
+out.log
+
