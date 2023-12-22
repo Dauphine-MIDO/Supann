@@ -70,7 +70,7 @@ public class SupannQuerier {
 		final List<Teacher> teachers = getTeachers(predicate);
 		verify(teachers.size() == 1, "" + teachers.size());
 		final Teacher teacher = Iterables.getOnlyElement(teachers);
-		verify(teacher.getId().equals(id));
+		verify(teacher.getUid().equals(id));
 		return teacher;
 	}
 
@@ -90,7 +90,7 @@ public class SupannQuerier {
 		final List<Student> students = getStudents(predicate);
 		verify(students.size() == 1, id + " ⇒ " + students.size());
 		final Student student = Iterables.getOnlyElement(students);
-		verify(student.getId().equals(id));
+		verify(student.getUuid().equals(id));
 		return student;
 	}
 }

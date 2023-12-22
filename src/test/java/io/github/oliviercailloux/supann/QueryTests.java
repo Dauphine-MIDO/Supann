@@ -50,7 +50,7 @@ class QueryTests {
 
 		final List<Teacher> teachers = querier.getTeachers("firstname = 'Olivier'");
 		final Teacher t1 = teachers.get(0);
-		assertNull(t1.getCivilite());
+		assertNull(t1.getSupannCivilite());
 		LOGGER.info("Found: {}.", teachers.stream().map(Stringer::toString).collect(ImmutableList.toImmutableList()));
 
 //		assertEquals("Mr", teacher.getId());
@@ -94,15 +94,15 @@ class QueryTests {
 		assertFalse(studentsA3MADA.isEmpty());
 		LOGGER.info("A3MADA: {}.", studentsA3MADA.size());
 		final ImmutableList<String> studentsA317 = studentsA3MADA.stream()
-				.filter(s -> s.getInscription().stream()
-						.anyMatch(i -> i.getYear().getValue().equals("2017")
-								&& i.getEtape().getValue().equals("{UAI:0750736T}A3MADA-403")))
+				.filter(s -> s.getSupannEtuInscription().stream()
+						.anyMatch(i -> i.getSupannEtuAnneeInscription().getValue().equals("2017")
+								&& i.getSupannEtuEtape().getValue().equals("{UAI:0750736T}A3MADA-403")))
 				.map(Stringer::toString).collect(ImmutableList.toImmutableList());
 		LOGGER.info("Among those, in 2017: {}.", studentsA317.size());
 		final ImmutableList<String> studentsA318 = studentsA3MADA.stream()
-				.filter(s -> s.getInscription().stream()
-						.anyMatch(i -> i.getYear().getValue().equals("2018")
-								&& i.getEtape().getValue().equals("{UAI:0750736T}A3MADA-403")))
+				.filter(s -> s.getSupannEtuInscription().stream()
+						.anyMatch(i -> i.getSupannEtuAnneeInscription().getValue().equals("2018")
+								&& i.getSupannEtuEtape().getValue().equals("{UAI:0750736T}A3MADA-403")))
 				.map(Stringer::toString).collect(ImmutableList.toImmutableList());
 		LOGGER.info("Among those, in 2018: {}.", studentsA318.size());
 
