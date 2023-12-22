@@ -1,5 +1,6 @@
 package io.github.oliviercailloux.supann;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -63,6 +64,8 @@ class QueryTests {
 
 	@Test
 	void testStudent() throws Exception {
+		assertDoesNotThrow(() -> querier.getStudent("21802998"));
+		assertDoesNotThrow(() -> querier.getStudent("22004340"));
 		final Student student218 = querier.getStudent("21803737");
 		LOGGER.info("Found: {}.", Stringer.toString(student218));
 		final Student student219 = querier.getStudent("21906349");
