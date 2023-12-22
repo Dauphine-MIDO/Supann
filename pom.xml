@@ -28,7 +28,7 @@
 							<!-- Access without authentication through the WSDL file in the class 
 								path fails because that file in turn requires the file https://supann.testapi.dauphine.fr/ebx-dataservices/ressources/xsd/common_1.0.xsd. 
 								I didn’t investigate further. -->
-							<wsdlUrls>https://testapi.dauphine.fr/ebx-dataservices/tables/pvRefSupann/RefSupann?WSDL</wsdlUrls>
+							<wsdlUrls>https://api.dauphine.fr/ebx-dataservices/tables/pvRefSupann/RefSupann?WSDL</wsdlUrls>
 							<!-- Fails when spaces in the path to the WSDL_access.txt file. -->
 							<xauthFile>/home/olivier/Professions/M1alt/Supann/WSDL_access.txt</xauthFile>
 							<vmArgs>
@@ -50,4 +50,3 @@
 		</dependency>
 	</dependencies>
 </project>
-
